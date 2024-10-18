@@ -1,6 +1,6 @@
 from flask import request, jsonify
 from config import app, db
-from models import JobOffer
+from models import JobOffer, Note
 
 
 # GET method
@@ -22,8 +22,6 @@ def create_offer():
     salary = request.json.get("salary")
     description = request.json.get("description")
     hiring_manager = request.json.get("hiringManager")
-    created_at = request.json.get("createdAt")
-    updated_at = request.json.get("updatedAt")
 
     # Check if the title (for now the only non-nullable field) is not empty
     # If it is, return an error that specifies it
@@ -34,8 +32,7 @@ def create_offer():
         )
     # create an instance of the class with the properties from the request
     new_job_offer = JobOffer(title=title, company=company, location=location, salary=salary,
-                             description=description, hiring_manager=hiring_manager,
-                             created_at=created_at, updated_at=updated_at)
+                             description=description, hiring_manager=hiring_manager)
 
     # try to add the class to the database
     try:
@@ -88,6 +85,62 @@ def delete_job_offer(job_offer_id):
 
     # inform the user
     return jsonify({"message": "Job offer deleted"}), 200
+
+
+@app.route("/<int:job_id>/get-notes", methods=["GET"])
+def get_job_notes(job_id):
+    notes = Note.query.filter_by(job_id=job_id).all()
+    json_notes = list(map(lambda x: x.to_json(), notes))
+    return jsonify({"notes": json_notes})
+
+@app.route("/<int:job_id>/create-note", methods=["POST"])
+def create_note(job_id):
+    note_title = request.json.get("note_title")
+    note = request.json.get("note")
+
+    if not note_title:
+        return (
+            jsonify({"message": "Title is required"}),
+            400
+        )
+    # create an instance of the class with the properties from the request
+    new_note = Note(note_title=note_title, note = note, job_id=job_id)
+
+    # try to add the class to the database
+    try:
+        db.session.add(new_note)
+        db.session.commit()  # write to the database
+    # if there is an exception, return the message
+    except Exception as e:
+        return jsonify({"message": str(e)}), 400
+
+    return jsonify({"message": "Note created"}), 201
+
+@app.route("/<int:job_id>/update-note/<int:note_id>", methods=["PATCH"])
+def update_note(job_id, note_id):
+    note = Note.query.get(note_id)
+    if not note:
+        return jsonify({"message": "Note not found"}), 404
+
+    data = request.json
+    note.note_title = data.get("note_title", note.note_title)
+    note.note = data.get("note", note.note)
+
+    db.session.commit()
+
+    return jsonify({"message": "Note updated"}), 200
+
+@app.route("/<int:job_id>/delete-note/<int:note_id>", methods=["DELETE"])
+def delete_note(job_id, note_id):
+    note = Note.query.get(note_id)
+    if not note:
+        return jsonify({"message": "Note not found"}), 404
+
+    db.session.delete(note)
+    db.session.commit()
+
+    return jsonify({"message": "Note deleted"}), 200
+
 
 
 if __name__ == '__main__':

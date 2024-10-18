@@ -27,3 +27,22 @@ class JobOffer(db.Model):
             "updatedAt": self.updated_at
         }
 
+
+# A class for note that is dependent on the job offer
+class Note(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    job_id = db.Column(db.Integer, db.ForeignKey('note.id'))
+    note_title = db.Column(db.String(50), unique=False, nullable=False)
+    note = db.Column(db.Text, unique=False, nullable=True)
+    created_at = db.Column(db.DateTime, default=datetime.now)
+    updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+
+    def to_json(self):
+        return {
+            "id": self.id,
+            "job_id": self.parent_id,
+            "note_title": self.note_title,
+            "note": self.note,
+            "createdAt": self.created_at,
+            "updatedAt": self.updated_at
+        }
