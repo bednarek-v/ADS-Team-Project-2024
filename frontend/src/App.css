@@ -6,33 +6,70 @@
 }
 
 .modal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
-  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.6);
+  padding-top: 1em;
 }
 
-.modal-content {
-  background-color: #9e9e9e;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 5px solid #888;
-  width: 80%;
-}
+
 
 .close{
   color: #1a1a1a;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.close:hover{
+  transition: color 0.3s;
+  color: rgba(182,5,14,0.51)
 }
 
 .card {
   padding: 2em;
 }
 
+.form-container {
+  background-color: darkslategray;
+  padding: 2em;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  gap: 1em;
+  top: 2em;
 
+}
+
+.form-container input[type="text"],
+.form-container input[type="string"] {
+  width: 90%;
+  padding: 10px;
+
+  border-radius: 12px; /* Increased border-radius for more rounded edges */
+  border: 1px solid #ccc;
+  font-size: 1em;
+  flex: 1;
+}
+
+.label-input-container {
+  display: flex; /* Use flexbox to align label and input horizontally */
+  align-items: center; /* Align the content vertically center */
+  gap: 10px; /* Space between the label and input */
+  margin-bottom: 15px; /* Space below the pair */
+}
+.form-container label {
+  font-weight: bold;
+  color: lightgray;
+}

@@ -1,6 +1,8 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 
-const JobOfferList = ({job_offers, updateJobOffer, updateCallback}) => {
+
+const JobOfferList = ({job_offers, updateJobOffer, updateCallback, fetchNotes}) => {
+
     const onDelete = async (id) => {
         try {
             const options = {
@@ -16,33 +18,31 @@ const JobOfferList = ({job_offers, updateJobOffer, updateCallback}) => {
             alert(error)
         }
     }
+
     return <div>
-        <h2>Job Offers</h2>
         <table>
             <thead>
             <tr>
-                <th>Title</th>
-                <th>Company</th>
-                <th>Location</th>
-                <th>Salary</th>
-                <th>Description</th>
-                <th>Hiring Manager</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-                <th>Actions</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Title</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Company</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Location</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Salary</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Description</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Hiring Manager</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}></th>
             </tr>
             </thead>
             <tbody>
             {job_offers.map((offer) => (
                 <tr key={offer.id}>
-                    <td>{offer.title}</td>
+                    <td>
+                        <button onClick={() => fetchNotes(offer.id)}>{offer.title}</button>
+                    </td>
                     <td>{offer.company}</td>
                     <td>{offer.location}</td>
                     <td>{offer.salary}</td>
                     <td>{offer.description}</td>
                     <td>{offer.hiringManager}</td>
-                    <td>{offer.createdAt}</td>
-                    <td>{offer.updatedAt}</td>
                     <td>
                         <button onClick={() => updateJobOffer(offer)}>Update</button>
                         <button onClick={() => onDelete(offer.id)}>Delete</button>
@@ -54,4 +54,4 @@ const JobOfferList = ({job_offers, updateJobOffer, updateCallback}) => {
     </div>
 }
 
-export default JobOfferList
+export default JobOfferList;

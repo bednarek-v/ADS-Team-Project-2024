@@ -7,6 +7,11 @@ from models import JobOffer, Note
 @app.route("/job-offers", methods=["GET"])
 # get all offers from the database
 def get_joboffers():
+    """
+    Handles the route for retrieving all job offers from the database.
+
+    :return: A JSON object containing a list of all job offers.
+    """
     job_offers = JobOffer.query.all()
     # from the python object, return JSON
     json_job_offers = list(map(lambda x: x.to_json(), job_offers))
@@ -16,6 +21,24 @@ def get_joboffers():
 # POST method
 @app.route("/create-job-offer", methods=["POST"])
 def create_offer():
+    """
+    Route to create a new job offer. The job offer details including title, company, location, salary, description, and hiring manager
+    must be provided in the request body as JSON. Title is required.
+
+    Field Validation:
+      - title: Non-nullable string
+
+    If the title is not provided, an error message will be returned with status code 400.
+
+    Database Operations:
+      - Attempts to insert a new job offer into the database.
+      - Commits the transaction if successful.
+      - Returns an error message if there is an exception during database operations.
+
+    :return: JSON response with a message indicating the result of the operation.
+      - Success: message "Job offer created" with status code 201
+      - Failure: appropriate error message with status code 400
+    """
     title = request.json.get("title")
     company = request.json.get("company")
     location = request.json.get("location")
@@ -49,6 +72,10 @@ def create_offer():
 @app.route("/update-job-offer/<int:job_offer_id>", methods=["PATCH"])
 # specify the offer id (primary key)
 def update_job_offer(job_offer_id):
+    """
+    :param job_offer_id: The ID of the job offer to update.
+    :return: A JSON response indicating the outcome of the update operation, along with the appropriate HTTP status code.
+    """
     job_offer = JobOffer.query.get(job_offer_id)
 
     # error if not found
@@ -73,6 +100,10 @@ def update_job_offer(job_offer_id):
 @app.route("/delete-job-offer/<int:job_offer_id>", methods=["DELETE"])
 # specific to one job offer id
 def delete_job_offer(job_offer_id):
+    """
+    :param job_offer_id: The ID of the job offer to be deleted.
+    :return: A JSON response with a message indicating the result of the delete operation and the corresponding HTTP status code.
+    """
     job_offer = JobOffer.query.get(job_offer_id)
 
     # throw error if not found
@@ -89,12 +120,21 @@ def delete_job_offer(job_offer_id):
 
 @app.route("/<int:job_id>/get-notes", methods=["GET"])
 def get_job_notes(job_id):
+    """
+    :param job_id: The ID of the job for which notes are to be retrieved.
+    :return: A JSON response containing the notes associated with the specified job.
+    """
     notes = Note.query.filter_by(job_id=job_id).all()
     json_notes = list(map(lambda x: x.to_json(), notes))
     return jsonify({"notes": json_notes})
 
+
 @app.route("/<int:job_id>/create-note", methods=["POST"])
 def create_note(job_id):
+    """
+    :param job_id: The unique identifier for the job to which the note is associated.
+    :return: A JSON response with a success or error message and the appropriate HTTP status code.
+    """
     note_title = request.json.get("note_title")
     note = request.json.get("note")
 
@@ -104,7 +144,7 @@ def create_note(job_id):
             400
         )
     # create an instance of the class with the properties from the request
-    new_note = Note(note_title=note_title, note = note, job_id=job_id)
+    new_note = Note(note_title=note_title, note=note, job_id=job_id)
 
     # try to add the class to the database
     try:
@@ -116,8 +156,14 @@ def create_note(job_id):
 
     return jsonify({"message": "Note created"}), 201
 
+
 @app.route("/<int:job_id>/update-note/<int:note_id>", methods=["PATCH"])
 def update_note(job_id, note_id):
+    """
+    :param job_id: The ID of the job associated with the note.
+    :param note_id: The ID of the note to be updated.
+    :return: A JSON response with a message indicating the result of the update operation.
+    """
     note = Note.query.get(note_id)
     if not note:
         return jsonify({"message": "Note not found"}), 404
@@ -130,8 +176,14 @@ def update_note(job_id, note_id):
 
     return jsonify({"message": "Note updated"}), 200
 
+
 @app.route("/<int:job_id>/delete-note/<int:note_id>", methods=["DELETE"])
 def delete_note(job_id, note_id):
+    """
+    :param job_id: The ID of the job associated with the note.
+    :param note_id: The ID of the note to be deleted.
+    :return: A JSON response containing a success or error message and the corresponding HTTP status code.
+    """
     note = Note.query.get(note_id)
     if not note:
         return jsonify({"message": "Note not found"}), 404
@@ -140,7 +192,6 @@ def delete_note(job_id, note_id):
     db.session.commit()
 
     return jsonify({"message": "Note deleted"}), 200
-
 
 
 if __name__ == '__main__':

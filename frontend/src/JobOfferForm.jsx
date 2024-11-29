@@ -34,7 +34,7 @@ const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
     }
 
     return (<form onSubmit={onSubmit}>
-        <div>
+        <div className="label-input-container">
             <label htmlFor="title">Title</label>
             <input
                 type="text"
@@ -43,7 +43,7 @@ const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
                 onChange={e => setTitle(e.target.value)}
             />
         </div>
-        <div>
+        <div className="label-input-container">
             <label htmlFor="company">Company</label>
             <input
                 type="text"
@@ -52,7 +52,7 @@ const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
                 onChange={e => setCompany(e.target.value)}
             />
         </div>
-        <div>
+        <div className="label-input-container">
             <label htmlFor="location">Location</label>
             <input
                 type="text"
@@ -61,7 +61,7 @@ const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
                 onChange={e => setLocation(e.target.value)}
             />
         </div>
-        <div>
+        <div className="label-input-container">
             <label htmlFor="salary">Salary</label>
             <input
                 type="string"
@@ -70,7 +70,7 @@ const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
                 onChange={e => setSalary(e.target.value)}
             />
         </div>
-        <div>
+        <div className="label-input-container">
             <label htmlFor="description">Description</label>
             <input
                 type="text"
@@ -79,7 +79,7 @@ const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
                 onChange={e => setDescription(e.target.value)}
             />
         </div>
-        <div>
+        <div className="label-input-container">
             <label htmlFor="hiringManager">Hiring Manager</label>
             <input
                 type="text"
@@ -92,4 +92,6 @@ const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
     </form>)
 }
 
+
 export default JobOfferForm
+
