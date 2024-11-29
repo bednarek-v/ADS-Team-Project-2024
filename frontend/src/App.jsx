@@ -2,12 +2,17 @@ import {useEffect, useState} from 'react'
 import './App.css'
 import JobOfferList from "./JobOfferList";
 import JobOfferForm from "./JobOfferForm";
-import NoteList from "./NoteList";
 import Header from "./Header";
+
 /**
- * App component for managing job offers and associated notes.
+ * The App component is responsible for rendering and managing a list of job offers,
+ * providing functionality to search, create, edit, and view job offers in a modal.
  *
- * @return {JSX.Element} The rendered component.
+ * It fetches job offers from a specified API endpoint and allows users to interact
+ * with them through a user interface that includes a search bar, a list of job offers,
+ * and buttons for creating new entries.
+ *
+ * @return {JSX.Element} The rendered component displaying job offers and controls for interaction.
  */
 function App() {
     const [job_offers, setJobOffers] = useState([])
@@ -42,11 +47,29 @@ function App() {
     }
 
 
+    const [searchTerm, setSearchTerm] = useState("");
+
+// Filter job offers based on the search term
+    const filteredJobOffers = job_offers.filter((offer) =>
+        offer.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <>
             <Header/>
-            <JobOfferList job_offers={job_offers} updateJobOffer={openEditModal} updateCallback={onUpdate}/>
+            <div className="search-bar">
+            <input
+                type="search"
+                placeholder="Search job offers..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            </div>
+            <JobOfferList
+                job_offers={filteredJobOffers}
+                updateJobOffer={openEditModal}
+                updateCallback={onUpdate}
+            />
             <br/>
             <button onClick={openCreateModal}>Create new job offer</button>
             {isModalOpen && <div className='modal'>

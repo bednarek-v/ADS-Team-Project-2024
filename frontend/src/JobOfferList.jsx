@@ -1,7 +1,20 @@
 import React, {useState, useEffect} from "react"
 
 
-const JobOfferList = ({job_offers, updateJobOffer, updateCallback, fetchNotes}) => {
+/**
+ * JobOfferList is a React component that renders a list of job offers in a tabular format.
+ * Each job offer can be updated or deleted through the provided buttons.
+ *
+ * @component
+ *
+ * @param {Object} props - The properties object.
+ * @param {Object[]} props.job_offers - The list of job offer objects to be displayed.
+ * @param {Function} props.updateJobOffer - Callback function to be called when an update is made to a job offer.
+ * @param {Function} props.updateCallback - Callback function to refresh the list after a job offer is deleted.
+ *
+ * @returns {JSX.Element} A JSX element rendering a table of job offers with action buttons for update and delete.
+ */
+const JobOfferList = ({job_offers, updateJobOffer, updateCallback}) => {
 
     const onDelete = async (id) => {
         try {
@@ -35,9 +48,7 @@ const JobOfferList = ({job_offers, updateJobOffer, updateCallback, fetchNotes}) 
             <tbody>
             {job_offers.map((offer) => (
                 <tr key={offer.id}>
-                    <td>
-                        <button onClick={() => fetchNotes(offer.id)}>{offer.title}</button>
-                    </td>
+                    <td style={{fontWeight: 'bold'}}>{offer.title}</td>
                     <td>{offer.company}</td>
                     <td>{offer.location}</td>
                     <td>{offer.salary}</td>

@@ -1,5 +1,22 @@
 import {useState} from 'react'
 
+/**
+ * JobOfferForm is a React component that renders a form for creating or updating a job offer.
+ * It pre-fills the form fields with data from an existing job offer if provided.
+ * The form includes fields for the job title, company, location, salary, description, and hiring manager.
+ * Upon submission, it makes a POST or PATCH request to the server to create or update the job offer, respectively.
+ * The form submission result is communicated through a callback function.
+ *
+ * @param {Object} existingJobOffer An object containing details of a job offer that is being edited. Defaults to an empty object, indicating a new job offer.
+ * @param {string} [existingJobOffer.title] The title of the job offer.
+ * @param {string} [existingJobOffer.company] The company name for the job offer.
+ * @param {string} [existingJobOffer.location] The location of the job offer.
+ * @param {string} [existingJobOffer.salary] The salary for the job offer.
+ * @param {string} [existingJobOffer.description] A description of the job offer.
+ * @param {string} [existingJobOffer.hiringManager] The name of the hiring manager responsible for the job offer.
+ * @param {function} updateCallback A callback function that will be called when the job offer is successfully created or updated.
+ * @returns {JSX.Element} A JSX element representing the job offer form.
+ */
 const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
     const [title, setTitle] = useState(existingJobOffer.title || "");
     const [company, setCompany] = useState(existingJobOffer.company || "");

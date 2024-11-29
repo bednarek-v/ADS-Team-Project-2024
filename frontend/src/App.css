@@ -73,3 +73,18 @@
   font-weight: bold;
   color: lightgray;
 }
+
+
+.search-bar {
+  display: flex;
+  justify-content: flex-end;
+  /* Aligns the search bar to the right */
+}
+
+.search-bar input[type="search"] {
+  width: 35%;
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
