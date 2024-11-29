@@ -3,6 +3,7 @@ import './App.css'
 import JobOfferList from "./JobOfferList";
 import JobOfferForm from "./JobOfferForm";
 import Header from "./Header";
+import Footer from "../Footer.jsx";
 
 /**
  * The App component is responsible for rendering and managing a list of job offers,
@@ -79,6 +80,7 @@ function App() {
                 </div>
             </div>
             }
+            <Footer/>
         </>
     );
 }
