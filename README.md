@@ -24,7 +24,7 @@ Open a terminal window in the **backed** folder and run
 Keep the terminal open. Open another terminal instance
 in the **frontend** folder. From here, run `npm run dev`.
 You should now be presented with a link to localhost
-(http://localhost:4173/). Here, you can interact with the app.
+(http://localhost:5173/). Here, you can interact with the app.
 
 ## Using the app
 All changes are final. There is no undo button, once you delete
