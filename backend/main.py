@@ -126,6 +126,10 @@ if __name__ == '__main__':
     
     app.run(debug=True, host="0.0.0.0", port=8000, use_reloader=False, threaded=True)
     
-    After this, change the setup in App.jsx, according to the output.
+    After this, change the config in the frontend folder, the file vite.config.js.
+    Paste in the second address
     """
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=8000, use_reloader=False, threaded=True)
+
+    #app.run(debug=True)
+

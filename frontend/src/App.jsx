@@ -4,7 +4,6 @@ import JobOfferList from "./JobOfferList";
 import JobOfferForm from "./JobOfferForm";
 import Header from "./Header";
 import Footer from "../Footer.jsx";
-
 /**
  * The App component is responsible for rendering and managing a list of job offers,
  * providing functionality to search, create, edit, and view job offers in a modal.
@@ -20,19 +19,14 @@ function App() {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [currentJobOffer, setCurrentJobOffer] = useState({})
 
-    /**
-     * When performing a demo on a local network, instead of the user having to install everything
-     * We can simply modify the flaskHost - first do the changes in main.py and then update the
-     * following line:
-     */
-    const flaskHost = "http://127.0.0.1:5000"
+    const apiUrl = process.env.API_URL;
 
     useEffect(() => {
         fetchJobOffers()
     }, []);
 
     const fetchJobOffers = async () => {
-        const response = await fetch(`${flaskHost}/job-offers`)
+        const response = await fetch(`${apiUrl}/job-offers`)
         const data = await response.json()
         setJobOffers(data.job_offers)
     };

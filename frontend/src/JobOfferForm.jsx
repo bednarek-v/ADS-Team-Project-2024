@@ -28,6 +28,7 @@ const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
 
     const updating = Object.entries(existingJobOffer).length !== 0
 
+    const apiUrl = process.env.API_URL;
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -35,7 +36,7 @@ const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
         const data = {
             title, company, location, salary, description, hiringManager
         }
-        const url = `${flaskHost}` + (updating ? `/update-job-offer/${existingJobOffer.id}` : "/create-job-offer")
+        const url = `${apiUrl}` + (updating ? `/update-job-offer/${existingJobOffer.id}` : "/create-job-offer")
         const options = {
             method: updating ? 'PATCH' : 'POST', headers: {
                 "Content-Type": "application/json",
