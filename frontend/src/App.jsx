@@ -3,7 +3,7 @@ import './App.css'
 import JobOfferList from "./JobOfferList";
 import JobOfferForm from "./JobOfferForm";
 import Header from "./Header";
-import Footer from "../Footer.jsx";
+import Footer from "./Footer.jsx";
 /**
  * The App component is responsible for rendering and managing a list of job offers,
  * providing functionality to search, create, edit, and view job offers in a modal.
@@ -58,7 +58,9 @@ function App() {
 
     return (
         <>
+            <div className="app-container">
             <Header/>
+                <div className="content">
             <div className="search-bar">
             <input
                 type="search"
@@ -81,7 +83,9 @@ function App() {
                 </div>
             </div>
             }
+            </div>
             <Footer/>
+            </div>
         </>
     );
 }

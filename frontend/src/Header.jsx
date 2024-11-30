@@ -11,11 +11,12 @@ const Header = () => (
 
 const headerStyle = {
     backgroundColor: '#121212',
-    padding: '1.5em 2.5em',
+    padding: '20px 30px',
     borderBottom: '1px solid #ddd',
     position: 'fixed',
     top: '0',
     left: '0',
+    height: '20px',
     width: '100%',
     zIndex: '1000',
 };

@@ -3,18 +3,18 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer style={{
-            padding: "0.2rem",
+            padding: "3px",
             textAlign: "center",
-            fontSize: "0.7rem",
+            fontSize: "10px",
             borderTop: "1px solid #121212",
             position: "fixed",
             bottom: 0,
             width: "100%",
             left: 0,
-            height: "auto",
+            height: "50px",
             zIndex: 0,
             overflow: "hidden",
-            lineHeight: "0.8rem",
+            lineHeight: "4px",
         }}>
             <p style={{color:"#8f8f8f"}}>© 2024 <strong>JobJourney</strong></p>
             <p style={{color:"#6c6c6c"}}>Crafted with ❤️ by <strong>Vojtěch Bednárek</strong> <span></span>
