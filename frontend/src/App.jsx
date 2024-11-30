@@ -4,6 +4,8 @@ import JobOfferList from "./JobOfferList";
 import JobOfferForm from "./JobOfferForm";
 import Header from "./Header";
 import Footer from "./Footer.jsx";
+import DeleteButton from "./DeleteButton";
+
 /**
  * The App component is responsible for rendering and managing a list of job offers,
  * providing functionality to search, create, edit, and view job offers in a modal.
@@ -59,34 +61,34 @@ function App() {
     return (
         <>
             <div className="app-container">
-            <Header/>
+                <Header/>
                 <div className="content">
-            <div className="search-bar">
-            <input
-                type="search"
-                placeholder="Search job offers..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            </div>
-            <JobOfferList
-                job_offers={filteredJobOffers}
-                updateJobOffer={openEditModal}
-                updateCallback={onUpdate}
-            />
-            <br/>
-            <button onClick={openCreateModal}>Create new job offer</button>
-            {isModalOpen && <div className='modal'>
-                <div className='form-container'>
-                    <span className='close' onClick={closeModal}>&times;</span>
-                    <div className='form-content'>
-                    <JobOfferForm existingJobOffer={currentJobOffer} updateCallback={onUpdate}/>
+                    <div className="search-bar">
+                        <input
+                            type="search"
+                            placeholder="Search job offers..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
                     </div>
+                    <JobOfferList
+                        job_offers={filteredJobOffers}
+                        updateJobOffer={openEditModal}
+                        updateCallback={onUpdate}
+                    />
+                    <br/>
+                    <button onClick={openCreateModal}>Create new job offer</button>
+                    {isModalOpen && <div className='modal'>
+                        <div className='form-container'>
+                            <span className='close' onClick={closeModal}>&times;</span>
+                            <div className='form-content'>
+                                <JobOfferForm existingJobOffer={currentJobOffer} updateCallback={onUpdate}/>
+                            </div>
+                        </div>
+                    </div>
+                    }
                 </div>
-            </div>
-            }
-            </div>
-            <Footer/>
+                <Footer/>
             </div>
         </>
     );

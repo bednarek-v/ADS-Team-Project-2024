@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react"
+import DeleteButton from "./DeleteButton.jsx";
+import EditButton from "./EditButtton.jsx";
 
 /**
  * JobOfferList is a React component that renders a list of job offers in a tabular format.
@@ -37,13 +39,13 @@ const JobOfferList = ({job_offers, updateJobOffer, updateCallback}) => {
         <table>
             <thead>
             <tr>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Title</th>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Company</th>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Location</th>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Salary</th>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Description</th>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}>Hiring Manager</th>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd'}}></th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Title</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Company</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Location</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Salary</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Description</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Hiring Manager</th>
+                <th style={{padding: '10px', width: '115px'}}></th>
             </tr>
             </thead>
             <tbody>
@@ -56,8 +58,10 @@ const JobOfferList = ({job_offers, updateJobOffer, updateCallback}) => {
                     <td>{offer.description}</td>
                     <td>{offer.hiringManager}</td>
                     <td>
-                        <button onClick={() => updateJobOffer(offer)}>Update</button>
-                        <button onClick={() => onDelete(offer.id)}>Delete</button>
+                        <div style={{display: 'flex', gap: '4px'}}>
+                            <EditButton updateJobOffer={updateJobOffer} offer={offer}/>
+                            <DeleteButton onDelete={onDelete} offer={offer}/>
+                        </div>
                     </td>
                 </tr>
             ))}
