@@ -10,7 +10,7 @@ import react from '@vitejs/plugin-react'
  *
  * When showing a locally hosted demo, replace the apiUrl.
  */
-const apiUrl = 'http://192.168.1.175:8000';
+const apiUrl = 'http://127.0.0.1:5000';
 
 // https://vitejs.dev/config/
 export default defineConfig({
