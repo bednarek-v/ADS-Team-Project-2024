@@ -35,10 +35,10 @@
 }
 
 
-
-.close{
+.close {
   color: #1a1a1a;
-  float: right;
+  display: flex;
+  justify-content: flex-end;
   font-size: 28px;
   font-weight: bold;
   margin-left: 16px;
@@ -56,32 +56,34 @@
 
 .form-container {
   background-color: darkslategray;
-  padding: 2em;
-  border-radius: 0.5em;
+  padding: 0.5em 1.5em 0.7em 0.5em;
+  border-radius: 1.5em;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  max-width: 480px;
   width: 100%;
   margin: auto;
   gap: 1em;
-  top: 2em;
-
+  top: 1em;
+  margin-top: 65px;
+  position: relative;
 }
 
 .form-container input[type="text"],
 .form-container input[type="string"] {
-  width: 90%;
+  width: 60%;
   padding: 10px;
-
+  box-sizing: border-box;
   border-radius: 12px; /* Increased border-radius for more rounded edges */
   border: 1px solid #ccc;
   font-size: 1em;
-  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .label-input-container {
   display: flex; /* Use flexbox to align label and input horizontally */
   align-items: center; /* Align the content vertically center */
-  gap: 10px; /* Space between the label and input */
+justify-content: flex-end;
   margin-bottom: 15px; /* Space below the pair */
 }
 .form-container label {
@@ -89,6 +91,10 @@
   color: lightgray;
 }
 
+.form-content {
+    margin-top: 10px;
+  padding-right: 2em/* Adjust margin to ensure content doesn't overlap with button */
+}
 
 .search-bar {
   display: flex;

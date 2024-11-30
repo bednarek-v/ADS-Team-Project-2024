@@ -79,7 +79,9 @@ function App() {
             {isModalOpen && <div className='modal'>
                 <div className='form-container'>
                     <span className='close' onClick={closeModal}>&times;</span>
+                    <div className='form-content'>
                     <JobOfferForm existingJobOffer={currentJobOffer} updateCallback={onUpdate}/>
+                    </div>
                 </div>
             </div>
             }
