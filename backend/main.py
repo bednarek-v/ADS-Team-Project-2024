@@ -121,5 +121,11 @@ def delete_job_offer(job_offer_id):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-
+    """
+    When showing a demo, and you want to host within network, uncomment the following line:
+    
+    app.run(debug=True, host="0.0.0.0", port=8000, use_reloader=False, threaded=True)
+    
+    After this, change the setup in App.jsx, according to the output.
+    """
     app.run(debug=True)

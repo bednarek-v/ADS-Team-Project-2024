@@ -20,12 +20,19 @@ function App() {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [currentJobOffer, setCurrentJobOffer] = useState({})
 
+    /**
+     * When performing a demo on a local network, instead of the user having to install everything
+     * We can simply modify the flaskHost - first do the changes in main.py and then update the
+     * following line:
+     */
+    const flaskHost = "http://127.0.0.1:5000"
+
     useEffect(() => {
         fetchJobOffers()
     }, []);
 
     const fetchJobOffers = async () => {
-        const response = await fetch("http://127.0.0.1:5000/job-offers")
+        const response = await fetch(`${flaskHost}/job-offers`)
         const data = await response.json()
         setJobOffers(data.job_offers)
     };

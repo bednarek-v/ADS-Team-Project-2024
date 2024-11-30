@@ -1,5 +1,5 @@
 import {useState} from 'react'
-
+import flaskHost from './App'
 /**
  * JobOfferForm is a React component that renders a form for creating or updating a job offer.
  * It pre-fills the form fields with data from an existing job offer if provided.
@@ -35,7 +35,7 @@ const JobOfferForm = ({existingJobOffer = {}, updateCallback}) => {
         const data = {
             title, company, location, salary, description, hiringManager
         }
-        const url = "http://127.0.0.1:5000" + (updating ? `/update-job-offer/${existingJobOffer.id}` : "/create-job-offer")
+        const url = `${flaskHost}` + (updating ? `/update-job-offer/${existingJobOffer.id}` : "/create-job-offer")
         const options = {
             method: updating ? 'PATCH' : 'POST', headers: {
                 "Content-Type": "application/json",

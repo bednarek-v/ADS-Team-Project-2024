@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-
+import flaskHost from "./App"
 
 /**
  * JobOfferList is a React component that renders a list of job offers in a tabular format.
@@ -21,7 +21,7 @@ const JobOfferList = ({job_offers, updateJobOffer, updateCallback}) => {
             const options = {
                 method: 'DELETE'
             }
-            const response = await fetch(`http://127.0.0.1:5000/delete-job-offer/${id}`, options)
+            const response = await fetch(`${flaskHost}/delete-job-offer/${id}`, options)
             if (response.status === 200) {
                 updateCallback()
             } else {
