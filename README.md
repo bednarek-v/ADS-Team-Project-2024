@@ -15,7 +15,7 @@ the command `pip install -r requirements.txt`. This will install
 packages needed for the app.
 
 Open another terminal window in the **frontend** folder.
-From here, run 'npm install'.
+From here, run `npm install`.
 
 _Note: this installation guide is for Windows. 
 When using a Mac, replace `python` with `python3`
