@@ -36,13 +36,6 @@ You should now be presented with a link to localhost
 (http://localhost:5173/). Here, you can interact with the app.
 
 ## Prerequisites and environment
-Before using the app, ensure that you have the following installed on your system:
-
-Python: Version 3.x or later [Download Python](https://www.python.org/downloads/)
-
-Node.js: Version 14.x or later [Download Node.js](https://nodejs.org/en/download/package-manager)
-
-npm: Comes pre-installed with Node.js (used for managing frontend dependencies)
 
 ### Development Environment
 
