@@ -1,3 +1,9 @@
+## Description of the app
+
+JobJourney is a job application tracking app designed to help users organize and manage their job search process more effectively. With a clean and intuitive interface, users can view, create, edit, and delete job offers while keeping track of essential details such as job title, company, location, salary, description, and hiring manager.
+
+This app simplifies the job search by offering features like a searchable job list and a clear overview of opportunities, enabling users to focus on their applications and deadlines with ease. Perfect for individuals looking to stay organized and proactive in their career journey.
+
 ## How to use the app
 
 First check that you have installed both Python and Node.js.
