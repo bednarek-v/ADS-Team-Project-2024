@@ -60,8 +60,5 @@ Operating System: The app was developed and tested both on MacOS 15.1 and Window
 ## Additional Notes
 
 For macOS or Linux users, replace python with python3 and pip with pip3 in the terminal commands during installation.
-Additional Notes
 
-For macOS or Linux users, replace python with python3 and pip with pip3 in the terminal commands during installation.
- 
 
