@@ -1,3 +1,8 @@
+## Description of the app
+JobJourney is a job application tracking webapp designed to help users organize and manage their job search process more effectively. With a clean and intuitive interface, users can view, create, edit, and delete job offers while keeping track of essential details such as job title, company, location, salary, description, and hiring manager.
+
+This webapp simplifies the job search by offering features like a searchable job list and a clear overview of opportunities, enabling users to focus on their applications and deadlines with ease. Perfect for individuals looking to stay organized and proactive in their career journey.
+
 ## How to use the app
 
 First check that you have installed both Python and Node.js.
@@ -32,5 +37,21 @@ You should now be presented with a link to localhost
 ## Using the app
 All changes are final. There is no undo button, once you delete
 something, it is gone.
+
+## Prerequisites
+Before using the app, ensure that you have the following installed on your system:
+
+Python: Version 3.x or later (Download Python)
+Node.js: Version 14.x or later (Download Node.js)
+npm: Comes pre-installed with Node.js (used for managing frontend dependencies)
+Development Environment
+Backend: The backend is developed using Python with the Flask library for routing and API management. Additional dependencies are listed in the requirements.txt file.
+Frontend: The frontend is built using React, a JavaScript library for building user interfaces, and Vite for a fast development environment.
+Libraries Used:
+Backend: Flask, Flask-Cors
+Frontend: React, React-DOM, styled-components
+Operating System: The app was developed and tested on Windows 10. It should also work on other operating systems with the correct environment setup.
+Additional Notes
+For macOS or Linux users, replace python with python3 and pip with pip3 in the terminal commands during installation.
  
 
