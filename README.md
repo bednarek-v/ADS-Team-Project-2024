@@ -14,11 +14,14 @@ Then, open the terminal in the **backend** folder. Run
 the command `pip install -r requirements.txt`. This will install
 packages needed for the app.
 
+Open another terminal window in the **frontend** folder.
+From here, run 'npm install'.
+
 _Note: this installation guide is for Windows. 
 When using a Mac, replace `python` with `python3`
 and `pip` with `pip3`_
 ## Start the app
-Open a terminal window in the **backed** folder and run
+Open a terminal window in the **backend** folder and run
 `python main.py`.
 
 Keep the terminal open. Open another terminal instance

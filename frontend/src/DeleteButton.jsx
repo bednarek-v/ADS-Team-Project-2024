@@ -1,6 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+/**
+ * DeleteButton is a React functional component that renders a styled button.
+ * Upon being clicked, it triggers a deletion action for a specific offer.
+ *
+ * This button was created by aaronross1 on https://uiverse.io/aaronross1/swift-seahorse-12
+ *
+ * @param {Object} props - The component's props.
+ * @param {function} props.onDelete - A callback function to execute when the button is clicked.
+ *   It receives the `id` of the offer as an argument.
+ * @param {Object} props.offer - An object representing the offer to be deleted.
+ *   It must contain an `id` property.
+ *
+ * @returns {JSX.Element} A JSX element*/
+
+
 const DeleteButton = ({onDelete, offer}) => {
   return (
     <StyledWrapper>

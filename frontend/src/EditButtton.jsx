@@ -1,6 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
+/**
+ * EditButton is a React functional component that renders a styled button for editing a job offer.
+ *
+ * This button was created by aaronross1 on https://uiverse.io/aaronross1/kind-bobcat-81
+ *
+ * When the button is clicked, it triggers the `updateJobOffer` function with the current `offer` as its argument.
+ * It makes use of an SVG icon for visual representation of the edit action.
+ *
+ * @param {Object} props - The component props.
+ * @param {Function} props.updateJobOffer - The function to invoke when the edit button is clicked, taking the current offer as its parameter.
+ * @param {Object} props.offer - The current job offer object to be passed to the update function.
+ *
+ * @returns {JSX.Element} A JSX element rendering the styled edit button.
+ */
+
 const EditButton = ({updateJobOffer, offer}) => {
   return (
     <StyledWrapper>
