@@ -38,7 +38,7 @@ in the **frontend** folder. From here, run `npm run dev`.
 You should now be presented with a link to localhost
 (http://localhost:5173/). Here, you can interact with the app.
 
-## Prerequisites and environment
+## Environment and libraries
 
 ### Development Environment
 
