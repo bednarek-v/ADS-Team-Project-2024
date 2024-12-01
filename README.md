@@ -8,8 +8,8 @@ This webapp simplifies the job search by offering features like a searchable job
 
 Before using the app, ensure that you have the following installed on your system:
 
-Python: Version 3.x or later (Download Python)
-Node.js: Version 14.x or later (Download Node.js)
+Python: Version 3.x or later [Download Python](https://www.python.org/downloads/)
+Node.js: Version 14.x or later [Download Node.js](https://nodejs.org/en/download/prebuilt-installer/current)
 npm: Comes pre-installed with Node.js (used for managing frontend dependencies)
 
 ## Installation
