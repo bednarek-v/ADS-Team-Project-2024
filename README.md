@@ -6,9 +6,11 @@ This webapp simplifies the job search by offering features like a searchable job
 
 ## How to use the app
 
-First check that you have installed both Python and Node.js.
-You can download Python from https://www.python.org/downloads/
-and Node.js from https://nodejs.org/en/download/package-manager.
+Before using the app, ensure that you have the following installed on your system:
+
+Python: Version 3.x or later (Download Python)
+Node.js: Version 14.x or later (Download Node.js)
+npm: Comes pre-installed with Node.js (used for managing frontend dependencies)
 
 ## Installation
 
