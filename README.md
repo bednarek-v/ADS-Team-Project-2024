@@ -23,15 +23,18 @@ Then, open the terminal in the **backend** folder. Run
 the command `pip install -r requirements.txt`. This will install
 packages needed for the app.
 
-Open another terminal window in the **frontend** folder.
-From here, run `npm install`.
-
 _Note: this installation guide is for Windows. 
 When using a Mac, replace `python` with `python3`
 and `pip` with `pip3`_
+
+Open another terminal window in the **frontend** folder.
+From here, run `npm install`.
+
 ## Start the app
 Open a terminal window in the **backend** folder and run
 `python main.py`.
+
+_Note: For Mac users, replace `python` with `python3`._
 
 Keep the terminal open. Open another terminal instance
 in the **frontend** folder. From here, run `npm run dev`.
@@ -52,9 +55,5 @@ Backend: Flask, Flask-Cors
 Frontend: React, React-DOM, styled-components
 
 Operating System: The app was developed and tested both on MacOS 15.1 and Windows 10. It should also work on other operating systems with the correct environment setup. There should be no difference in using Intel or Apple silicon for Mac users.
-
-## Additional Notes
-
-For macOS or Linux users, replace python with python3 and pip with pip3 in the terminal commands during installation.
 
 
