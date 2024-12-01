@@ -35,11 +35,7 @@ in the **frontend** folder. From here, run `npm run dev`.
 You should now be presented with a link to localhost
 (http://localhost:5173/). Here, you can interact with the app.
 
-## Using the app
-All changes are final. There is no undo button, once you delete
-something, it is gone.
-
-## Prerequisites
+## Prerequisites and environment
 Before using the app, ensure that you have the following installed on your system:
 
 Python: Version 3.x or later [Download Python](https://www.python.org/downloads/)
@@ -54,13 +50,16 @@ Backend: The backend is developed using Python with the Flask library for routin
 
 Frontend: The frontend is built using React, a JavaScript library for building user interfaces, and Vite for a fast development environment.
 
-#### Libraries Used:
+### Libraries Used:
 Backend: Flask, Flask-Cors
 
 Frontend: React, React-DOM, styled-components
 
 Operating System: The app was developed and tested both on MacOS 15.1 and Windows 10. It should also work on other operating systems with the correct environment setup. There should be no difference in using Intel or Apple silicon for Mac users.
 
+## Additional Notes
+
+For macOS or Linux users, replace python with python3 and pip with pip3 in the terminal commands during installation.
 Additional Notes
 
 For macOS or Linux users, replace python with python3 and pip with pip3 in the terminal commands during installation.
