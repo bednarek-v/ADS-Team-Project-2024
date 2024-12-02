@@ -18,6 +18,8 @@ import EditButton from "./EditButtton.jsx";
 const JobOfferList = ({job_offers, updateJobOffer, updateCallback}) => {
 
     const apiUrl = process.env.API_URL;
+    const [sortedJobOffers, setSortedJobOffers] = useState(job_offers);
+    const [sortConfig, setSortConfig] = useState({key: null, direction: 'ascending'});
 
     const onDelete = async (id) => {
         try {
@@ -35,21 +37,59 @@ const JobOfferList = ({job_offers, updateJobOffer, updateCallback}) => {
         }
     }
 
+    useEffect(() => {
+        let sortedOffers = [...job_offers];
+        if (sortConfig.key) {
+            sortedOffers.sort((a, b) => {
+                const aKey = a[sortConfig.key]?.toString().toLowerCase() || '';
+                const bKey = b[sortConfig.key]?.toString().toLowerCase() || '';
+                if (aKey < bKey) {
+                    return sortConfig.direction === 'ascending' ? -1 : 1;
+                }
+                if (aKey > bKey) {
+                    return sortConfig.direction === 'ascending' ? 1 : -1;
+                }
+                return 0;
+            });
+        }
+        setSortedJobOffers(sortedOffers);
+    }, [job_offers, sortConfig]);
+
+    const requestSort = (key) => {
+        let direction = 'ascending';
+        if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+            direction = 'descending';
+        }
+        setSortConfig({key, direction});
+    };
+
     return <div>
         <table>
             <thead>
             <tr>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Title</th>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Company</th>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Location</th>
-                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Salary</th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>
+                    Title
+                    <button onClick={() => requestSort('title')}>Sort</button>
+                </th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>
+                    Company
+                    <button onClick={() => requestSort('company')}>Sort</button>
+                </th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>
+                    Location
+                    <button onClick={() => requestSort('location')}>Sort</button>
+                </th>
+                <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>
+                    Salary
+                    <button onClick={() => requestSort('salary')}>Sort</button>
+                </th>
                 <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Description</th>
                 <th style={{padding: '10px', borderBottom: '2px solid #ddd', minWidth: '120px'}}>Hiring Manager</th>
                 <th style={{padding: '10px', width: '115px'}}></th>
             </tr>
             </thead>
             <tbody>
-            {job_offers.map((offer) => (
+            {sortedJobOffers.map((offer) => (
                 <tr key={offer.id}>
                     <td style={{fontWeight: 'bold'}}>{offer.title}</td>
                     <td>{offer.company}</td>
