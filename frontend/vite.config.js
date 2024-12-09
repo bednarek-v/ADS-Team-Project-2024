@@ -8,9 +8,17 @@ import react from '@vitejs/plugin-react'
  * to the backend server. The default value points to a local server running on IP address
  * 127.0.0.1 with port 5000. This is the default for a Flask development server.
  *
- * When showing a locally hosted demo, replace the apiUrl.
+ * After you have changed the settings in the `main.py` file, replace the address in the following line:.
  */
 const apiUrl = 'http://127.0.0.1:5000';
+
+/**
+ * After this step, the instructions change, compared to the ReadMe.md file.
+ * Now, the command to host to your private network is as follows:
+ * `npm run dev -- --host`
+ * After running this in the frontend folder, you should be able to access the webapp across all devices
+ * in your network by following the second link in the terminal.
+ */
 
 const Authors = 'Vojtěch Bednárek & Anna Sušická'
 

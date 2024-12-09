@@ -122,14 +122,18 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     """
-    When showing a demo, and you want to host within network, uncomment the following line:
-    
-    app.run(debug=True, host="0.0.0.0", port=8000, use_reloader=False, threaded=True)
-    
-    After this, change the config in the frontend folder, the file vite.config.js.
-    Paste in the second address
+    If you want to host this webapp to your local network, uncomment the following line:
     """
     #app.run(debug=True, host="0.0.0.0", port=8000, use_reloader=False, threaded=True)
 
+    """
+    After this, comment out the next line:
+    """
     app.run(debug=True)
+
+    """
+    Now, you can run the app as indicated in the README.md file. From the backend directory, run:
+    python main.py (on Windows) or python3 main.py (on Mac/Linux)
+    Take note of the second address that appears in the terminal. Copy it and open the file `vite.config.js`
+    """
 

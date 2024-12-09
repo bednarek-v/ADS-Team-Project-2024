@@ -57,3 +57,35 @@ Frontend: React, React-DOM, styled-components
 Operating System: The app was developed and tested both on MacOS 15.1 and Windows 10. It should also work on other operating systems with the correct environment setup. There should be no difference in using Intel or Apple silicon for Mac users.
 
 
+## Usage of the app
+
+This version features two placeholder entries for the user
+to familiarize themselves with the workings of the app.
+
+The job offers are displayed in a table. The user is
+able to sort by some of the fields by clicking the
+buttons located near the headers. The default sort order
+is ascending, but by clicking the button once more,
+the order is changed to descending. 
+
+On the side of each row are two buttons, Edit and Delete.
+Neither of those actions is reversible, caution is advised.
+For editing, the changes apply only after submitting
+the form by clicking on the **Update** button.
+For deletion, only a click is enough.
+
+There is also a filtering function. In this version
+of the app, the search is applied only to the **Title**
+of the job offer. The filtering searches the text 
+of the title for the substring supplied by the user.
+
+Last is the **Create** function. The interface is the same
+as for updating, but in this case, all fields are left blank.
+
+
+### _Closing notes on accessibility_
+
+_This demo is set up to run on your machine and be
+accessible only from it. For the advanced user, there
+is a small guide in the `main.py` file that enables
+hosting the app locally to all devices on your network._
