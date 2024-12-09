@@ -12,10 +12,13 @@ import react from '@vitejs/plugin-react'
  */
 const apiUrl = 'http://127.0.0.1:5000';
 
+const Authors = 'Vojtěch Bednárek & Anna Sušická'
+
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
     define: {
-        'process.env.API_URL': JSON.stringify(apiUrl)
+        'process.env.API_URL': JSON.stringify(apiUrl),
+        'process.env.AUTHORS': JSON.stringify(Authors)
     }
 })

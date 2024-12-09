@@ -44,6 +44,9 @@ const StyledWrapper = styled.div`
     transition-duration: 0.3s;
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;  
+    flex-shrink: 0;
+    padding: 0;    
   }
 
   .delete-svgIcon {

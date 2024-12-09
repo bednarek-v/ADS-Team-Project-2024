@@ -44,6 +44,9 @@ const StyledWrapper = styled.div`
     overflow: hidden;
     position: relative;
     text-decoration: none !important;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    padding: 0;    
   }
 
   .edit-svgIcon {

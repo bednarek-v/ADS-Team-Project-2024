@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Footer = () => {
+
+    const Authors = process.env.AUTHORS;
+
     return (
         <footer style={{
             padding: "3px",
@@ -17,7 +20,7 @@ const Footer = () => {
             lineHeight: "4px",
         }}>
             <p style={{color:"#8f8f8f"}}>© 2024 <strong>JobJourney</strong></p>
-            <p style={{color:"#6c6c6c"}}>Crafted with ❤️ by <strong>Vojtěch Bednárek</strong> <span></span>
+            <p style={{color:"#6c6c6c"}}>Crafted with ❤️ by <strong>{Authors}</strong> <span></span>
                 <a
                     href="https://github.com/bednarek-v/ADS-Team-Project-2024"
                     target="_blank"

@@ -59,3 +59,11 @@ label, input {
   margin-bottom: 0.8em;
   margin-left: 0.8em;
 }
+
+th {
+    padding: 5px;
+    border-bottom: 2px solid #ddd;
+    min-width: 130px;
+    vertical-align: middle;
+
+}
